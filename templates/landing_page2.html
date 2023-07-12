@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Tools</title>
+  <!-- Bootstrap CSS CDN link -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <!-- AOS CSS CDN link -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+  <style>
+    /* Add custom styles here */
+    body {
+      position: relative;
+      min-height: 100vh;
+    }
+    
+    .hero {
+      background-image: url('path/to/hero-image.jpg');
+      background-size: cover;
+      background-position: center;
+      height: 10vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    header {
+      text-align: center;
+      margin-top: 5%;
+    }
+    
+    .download-section {
+      padding: 5%;
+      background: linear-gradient(to bottom right, #ef7489, #4B0082);
+      color: #fff;
+      position: absolute;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <section class="download-section" data-aos="fade-up">
+    <header data-aos="fade-up">
+      <h4>Download Instagram: <span id="typed-text"></span></h4>
+    </header>
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-12 col-md-6">
+          <form method="POST">
+            <div class="form-group ">
+              <input id='inputURL' required name="insta_url" type="text" class="form-control" placeholder="Paste Instagram image URL">
+            </div>
+            <div class=" ">
+                <button type="button" class="btn btn-sm mt-3 float-end btn-success" onclick='fetchFunction()'>Generate</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="hero mt-5"  >
+    
+    <!-- Hero content here, showcasing photography -->
+    
+  </section>
+  
+  <div class="" id="content" data-aos="fade-up" style="margin-top: 30vh;">
+
+
+  </div>
+
+  <!-- Bootstrap JS CDN script link -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- AOS JS CDN script link -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <!-- Typed.js CDN script link -->
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+  <script>
+    AOS.init();
+    
+    var typed = new Typed('#typed-text', {
+      strings: ['Posts', 'Reels', 'Videos','Posts', 'Reels', 'Videos','Posts', 'Reels', 'Videos'],
+      typeSpeed: 40,
+      backSpeed: 10,
+      loop: true
+    });
+  </script>
+
+
+  <script>
+    async function fetchFunction()
+    {
+      var inputURL=document.getElementById('inputURL').value;
+
+      var tosend={url:inputURL};
+
+      const videoPlayer = document.getElementById('videoPlayer');
+      url='/';
+
+      fetch(url, {
+    method: 'POST',
+    body: JSON.stringify(tosend)
+})
+.then(function(response) {
+    return response.json();
+})
+.then(function(data) {
+    console.log(data);
+    var img = document.createElement('img');
+    img.src = data.a;
+    img.alt = "";
+    img.srcset = "";
+    img.height = "300";
+    img.width = "150";
+    document.getElementById('content').appendChild(img);
+})
+.catch(function(error) {
+    console.error(error);
+});
+
+      
+      
+
+      
+      
+      
+      
+    }
+
+    
+  </script>
+</body>
+</html>

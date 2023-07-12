@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Download Video</title>
+</head>
+<body>
+  <h1>Download Video</h1>
+  
+  <video controls src="./reels/2023-07-01_04-49-34_UTC.mp4" id="video" height="200px" width="200px">
+    Your browser does not support the video tag.
+  </video>
+  
+  <button onclick="downloadVideo()">Download</button>
+  
+  <script>
+    function downloadVideo() {
+      // Get the video element
+      var video = document.getElementById('video');
+      
+      // Create a temporary link element
+      var link = document.createElement('a');
+      
+      // Set the download attribute and the href attribute with the video source URL
+      link.setAttribute('download', 'video.mp4');
+      link.setAttribute('href', video.src);
+      
+      // Simulate a click on the link element to trigger the download
+      link.click();
+    }
+  </script>
+</body>
+</html>
