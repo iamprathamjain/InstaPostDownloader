@@ -17,5 +17,11 @@ def download_instagram_reel(url):
 
 # Example usage
 
-reel_url = "https://www.instagram.com/reels/CtybwGjJzwe/"
+reel_url = "https://www.instagram.com/p/CuXeKtHAgqv/"
 download_instagram_reel(reel_url)
+loader = instaloader.Instaloader()
+try:
+    loader.download_saved_posts()
+    print("Saved posts downloaded successfully!")
+except instaloader.exceptions.QueryReturnedNotFoundException:
+    print("No saved posts found.")
