@@ -5,7 +5,7 @@ from random import randint as ri
 def download_instagram_reel(url):
     # Create an instance of Instaloader
     loader = instaloader.Instaloader()
-    uniqueID=ri(0,45555)
+    uniqueID=ri(1000,9999)
 
     # Load the Instagram post
     try:
