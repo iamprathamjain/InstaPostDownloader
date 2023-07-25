@@ -37,8 +37,8 @@
     
     .download-section {
       padding: 5%;
-      background: linear-gradient(to top right, #ef7489, #4B0082);
       background: linear-gradient(to top left, #f8f5f5, #387db7);
+      background: linear-gradient(to top left, #ef7489, #4B0082);
       color: #fff;
       position: absolute;
       width: 100%;
@@ -46,34 +46,65 @@
       height: auto;
       
     }
+    
+      
+
+
   </style>
 </head>
 <body>
   <section class="download-section  d-block" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="200" data-aos-offset="500">
     <header  class="">
-      <h4>Download Instagram: <span id="typed-text"></span></h4>
+      <h4>Download High Quality Instagram: <span id="typed-text"></span></h4>
     </header>
     <div class="container-fluid ">
       <div class="row justify-content-center ">
         <div class="col-sm-12 col-md-6  ">
+          
+
+          <!-- <ul class="nav justify-content-center mt-3 mb-3">
+            <li class="nav-item">
+              <a class="btn btn-sm border border-white text-dark fw-6 bg-white m-1 ">Instagram</a>
+            </li>
+            <li class="nav-item">
+              <a class="btn btn-sm border border-white text-white m-1">Facebook</a>
+            </li>
+            <li class="nav-item">
+              <a class="btn btn-sm border border-white text-white m-1">Youtube</a>
+            </li>
+            
+          </ul> -->
+
+
+
           <form method="POST">
-            <div class="form-group row ">
-              <div class="col-12 ">
-              <input id='inputURL' required name="insta_url" type="text" class="form-control  " placeholder="Paste Instagram image URL">
-            </div>
+            <div class="form-group">
+              
+              <input id='inputURL' required name="insta_url" type="text" class="form-control " placeholder="Paste Instagram image URL">
+            
             </div>
             <div class=" ">
-                <button type="submit" class="btn btn-sm mt-3 float-end btn-success" onclick=''>Generate</button>
+                <button type="submit" class="btn btn-sm mt-3 float-end btn-success" onclick='generate()'>Generate</button>
             </div>
           </form>
+
+          
         </div>
       </div>
     </div>
+
+    <div class="row justify-content-center text-center" id="pleaseWait" style="display:none;" >
+      <div class="spinner-grow  text-light " id='loading' style="width: 3rem; height: 3rem;" role="status"> 
+        
+      </div>
+      <h6 class="text-light">Working On It</h6>
+    </div>
+    
     
 
     {% if sources %}
-    <div class="row p-auto text-dark justify-content-center border border-white bg-white">
-      <div class="table-responsive col px-auto ">
+    <div class="row mt-3 text-dark justify-content-center border border-white bg-white">
+      <div class="table-responsive col  ">
         <table class="table table-hover">
           <tbody>
             <tr>
@@ -92,26 +123,42 @@
         </table>
       </div>
     </div>
-    <div class="row p-auto text-center text-dark justify-content-center border border-white">
+    
+    <div class="row mt-3  p-auto text-center text-dark justify-content-center border border-white">
       
       <div class="col-3 px-auto  ">
         
+        
     {% for i in range(sources|length) %}
         {% if sources[i].endswith('jpg') %}
-              <h6 class="bg-white mt-1 col mx-auto">Item {{i+1}} of {{(sources|length)+1-1}} </h6>
-            <img src="{{ sources[i] }}" class='p-auto mt-2 mb-2 img-thumbnail rounded mx-auto d-block' width="200" height="400" alt="{{ post_caption|replace('  ', '')}}">
-        {% endif %}
+              <div class=" mt-2 mb-2 border">
+        <h6 class="bg-white  col mx-auto">Item {{i+1}} of {{(sources|length)+1-1}} </h6>
+            <img src="{{ sources[i] }}" loading="auto" class='p-auto mt-2 mb-2 img-thumbnail rounded mx-auto d-block' width="200" height="400" alt="{{ post_caption|replace('  ', '')}}">
+            <a href="{{ sources[i] }}" download>
+              <button class="btn btn-sm btn-light fw-medium ">Download Item {{i+1}} of {{(sources|length)+1-1}}</button>
+
+          </a>
+          </div>
+            {% endif %}
         {% if  sources[i].endswith('mp4') %}
-        <h6 class="bg-white mt-1 col mx-auto">Item {{i+1}} of {{(sources|length)+1}} </h6>
+       <div class=" mt-2 mb-2 border">
+        <h6 class="bg-white  col mx-auto">Item {{i+1}} of {{(sources|length)+1-1}} </h6>
             <video class='mt-2 mb-2 p-auto img-thumbnail rounded mx-auto d-block' width="200" height="400" controls>
-                <source class='' src="{{ sources[i]}}" type="video/mp4" >
+                <source class='' src="{{ sources[i]}}" loading="auto" type="video/mp4" >
                 Your browser does not support the video tag.
             </video>
+            <a href="{{ sources[i] }}" download>
+              <button class="btn btn-sm btn-light fw-medium ">Download Item {{i+1}} of {{(sources|length)+1-1}}</button>
+
+          </a>
+          </div>
         {% endif %}
     {% endfor %}
   </div>
   </div>
 {% endif %}
+
+
 
 
   </section>
@@ -136,9 +183,9 @@
     AOS.init();
     
     var typed = new Typed('#typed-text', {
-      strings: ['Thumbnails','Posts', 'Reels', 'Videos','Photos', 'Reels', "Thumbnails",'Videos','Images', 'Reels', 'Videos'],
+      strings: ['Posts', 'Reels', 'Videos','Photos', 'Reels', "Thumbnails",'Videos','Images', 'Reels', 'Videos'],
       typeSpeed: 40,
-      backSpeed: 10,
+      backSpeed: 5,
       loop: true
     });
 
@@ -178,12 +225,15 @@
 });
 
       
-      
 
       
       
       
       
+    }
+    function generate()
+    {
+      document.getElementById('pleaseWait').style.display='Block'
     }
 
     
