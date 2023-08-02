@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   
     <title>Tools</title>
   <!-- Bootstrap CSS CDN link -->
@@ -13,9 +16,11 @@
       padding: 0%;
       margin: 0%;
       position: relative;
-      min-height: 0vh;
+      min-height: 100vh;
     }
-    .pink-gradient-link {
+
+  .pink-gradient-link 
+  {
   
   color:  #ff0080;
   text-decoration: none;
@@ -37,15 +42,29 @@
     
     .download-section {
       padding: 5%;
-      background: linear-gradient(to top left, #f8f5f5, #387db7);
+      background: linear-gradient(to top left, #dde1f3, #073d87);
       background: linear-gradient(to top left, #ef7489, #4B0082);
       color: #fff;
-      position: absolute;
+      position: relative;
       width: 100%;
       min-height: 100vh;
       height: auto;
       
     }
+    .btn
+    {
+        transition: all ease 0.5;
+    }
+    .btn:hover
+    {
+      box-shadow: 5px 5px 5px black;
+      height: auto;
+      width: auto;
+    }
+    
+    
+
+    
     
       
 
@@ -53,27 +72,57 @@
   </style>
 </head>
 <body>
-  <section class="download-section  d-block" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="200" data-aos-offset="500">
+  <nav data-aos="slide-right" data-aos-duration="1000" data-aos-delay="200" data-aos-offset="500" class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+      <a class="navbar-brand" href="#">Your Brand</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link btn" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link btn" href="#">Privacy Policy </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link btn" href="#">Terms and Conditions </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link btn" href="#">About us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link btn" href="#">Contact us</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  
+  <section class="download-section" data-aos="slide-right" data-aos-duration="1000" data-aos-delay="500" data-aos-offset="500">
     <header  class="">
       <h4>Download High Quality Instagram: <span id="typed-text"></span></h4>
     </header>
-    <div class="container-fluid ">
+    <div class="container-fluid " >
       <div class="row justify-content-center ">
         <div class="col-sm-12 col-md-6  ">
           
 
-          <!-- <ul class="nav justify-content-center mt-3 mb-3">
+           <ul class="nav justify-content-center mb-3 ">
             <li class="nav-item">
-              <a class="btn btn-sm border border-white text-dark fw-6 bg-white m-1 ">Instagram</a>
+              <a class="btn btn-sm border border-white text-dark bg-white fw-6  m-1 " >Instagram</a>
             </li>
             <li class="nav-item">
               <a class="btn btn-sm border border-white text-white m-1">Facebook</a>
             </li>
             <li class="nav-item">
-              <a class="btn btn-sm border border-white text-white m-1">Youtube</a>
+              <a class="btn btn-sm border border-white text-white m-1 " >Youtube</a>
             </li>
             
-          </ul> -->
+          </ul>
+          
 
 
 
@@ -92,6 +141,7 @@
         </div>
       </div>
     </div>
+   
 
     <div class="row justify-content-center text-center" id="pleaseWait" style="display:none;" >
       <div class="spinner-grow  text-light " id='loading' style="width: 3rem; height: 3rem;" role="status"> 
@@ -100,10 +150,21 @@
       <h6 class="text-light">Working On It</h6>
     </div>
     
-    
+    <div class="row justify-content-center text-dark text-center  ">
+
+      
+      <div class="col text-white text-start mt-5">
+        <h5>Instructions:</h5>
+        <h6 class="p-1 m-1"><span class="badge text-bg-light fw-normal m-1">Step 1</span>Copy the link to that Post or video which you want to download.</h1>
+          <h6 class="p-1 m-1"><span class="badge text-bg-light fw-normal m-1">Step 2</span>Open our website using your web browser.</h1>
+            <h6 class="p-1 m-1"><span class="badge text-bg-light fw-normal m-1">Step 3</span>Paste the video link in the downloader input box  and Click on Generate Button</h1>
+              <h6 class="p-1 m-1"><span class="badge text-bg-light fw-normal m-1">Step 4</span>Click on the Download button</h1>
+
+      </div>
+      </div>
 
     {% if sources %}
-    <div class="row mt-3 text-dark justify-content-center border border-white bg-white">
+    <div class="row mt-3 text-dark justify-content-center  bg-white">
       <div class="table-responsive col  ">
         <table class="table table-hover">
           <tbody>
@@ -126,12 +187,12 @@
     
     <div class="row mt-3  p-auto text-center text-dark justify-content-center border border-white">
       
-      <div class="col-3 px-auto  ">
+      <div class="col-sm-12 col-md-12 col-lg-3 px-auto  ">
         
         
     {% for i in range(sources|length) %}
         {% if sources[i].endswith('jpg') %}
-              <div class=" mt-2 mb-2 border">
+              <div class=" mt-2 mb-2 border ">
         <h6 class="bg-white  col mx-auto">Item {{i+1}} of {{(sources|length)+1-1}} </h6>
             <img src="{{ sources[i] }}" loading="auto" class='p-auto mt-2 mb-2 img-thumbnail rounded mx-auto d-block' width="200" height="400" alt="{{ post_caption|replace('  ', '')}}">
             <a href="{{ sources[i] }}" download>
@@ -150,7 +211,7 @@
             <a href="{{ sources[i] }}" download>
               <button class="btn btn-sm btn-light fw-medium ">Download Item {{i+1}} of {{(sources|length)+1-1}}</button>
 
-          </a>
+          </a> 
           </div>
         {% endif %}
     {% endfor %}
@@ -158,10 +219,74 @@
   </div>
 {% endif %}
 
+<div class="row justify-content-center text-dark   ">
 
+      
+  <div class="col  text-white mt-5" style="text-align: justify;">
+    <h5>Terms and Conditions</h5>
+    <h6 class="p-2 m-1 text-align">When you access and use our application and website, you're indicating your agreement with our policy and Terms of Service (ToS), even with any future updates. If you don't agree with any part of it, kindly refrain from using our application and website.</h6>
+    <h6 class="p-2 m-1 text-align" >Our tools are designed for educational purposes and specifically for downloading content from your own account. If our tools are misused to infringe upon the privacy or rights of others, we hold the right to deny our services. It's important to note that we do not assert any ownership over the downloaded content; the rights, including trademarks, remain with the original users. Trademarks and copyrights for platforms like Facebook, Instagram, and any other mentioned websites belong to their respective owners.To Read Full Terms and Conditions Click Here</h1>
+    
+  </div>
+  </div>
+  <div class="row justify-content-center text-dark text-center  ">
+
+      
+    <div class="col text-white text-start mt-5">
+      <h5>Frequently Asked Questions</h5>
+
+      
+      <div class="accordion accordion-flush   " id="accordionFlushExample" >
+
+
+        <div class="accordion-item  text-white mt-1 mb-1 border border-white " style="background-color: transparent;">
+          <h2 class="accordion-header">
+            <button style="background-color: transparent;" class="accordion-button collapsed text-white fw-normal" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse1" aria-expanded="false" aria-controls="flush-collapse1">
+              What is purposes?
+            </button>
+          </h2>
+          <div id="flush-collapse1" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+            <div class="accordion-body "><h6 class="m-1">hey</h6></div>
+          </div>
+        </div>
+
+        <div class="accordion-item  text-white mt-1 mb-1 border border-white" style="background-color: transparent; ">
+          <h2 class="accordion-header">
+            <button style="background-color: transparent;" class="accordion-button collapsed text-white fw-normal" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse2" aria-expanded="false" aria-controls="flush-collapse2">
+              What is purposes?
+            </button>
+          </h2>
+          <div id="flush-collapse2" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+            <div class="accordion-body  "><h6 class="m-1">hey</h6></div>
+          </div>
+        </div>
+
+
+
+
+
+      
+
+
+      </div>
+      
+      
+      
+    </div>
+    </div>
 
 
   </section>
+ 
+
+
+  <footer class="footer " >
+    <div class="container-fluid text-center">
+      <p>&copy; 2023 Your Company. All rights reserved. We are not affiliated with Instagram or Meta</p>
+    </div>
+  </footer>
+
+  
 
  
 
@@ -193,53 +318,5 @@
   </script>
 
 
-  <script>
-    async function fetchFunction()
-    {
-      var inputURL=document.getElementById('inputURL').value;
-
-      var tosend={url:inputURL};
-
-      const videoPlayer = document.getElementById('videoPlayer');
-      url='/';
-
-      fetch(url, {
-    method: 'POST',
-    body: JSON.stringify(tosend)
-})
-.then(function(response) {
-    return response.json();
-})
-.then(function(data) {
-    console.log(data);
-    var img = document.createElement('img');
-    img.src = data.a;
-    img.alt = "";
-    img.srcset = "";
-    img.height = "300";
-    img.width = "150";
-    document.getElementById('content').appendChild(img);
-})
-.catch(function(error) {
-    console.error(error);
-});
-
-      
-
-      
-      
-      
-      
-    }
-    function generate()
-    {
-      document.getElementById('pleaseWait').style.display='Block'
-    }
-
-    
-
-
-
-  </script>
 </body>
 </html>

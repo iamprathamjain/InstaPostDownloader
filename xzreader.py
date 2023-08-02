@@ -7,7 +7,7 @@ def open_xz_file(filename):
         data = f.read()
     return data
 
-x=(open_xz_file('static/insta/7056-ID-2023-06-15_10-49-19_UTC.json.xz'))
+x=(open_xz_file('{date_utc}_UTC/2023-07-28_23-41-31_UTC.json.xz'))
 
 # print(type(x))
 

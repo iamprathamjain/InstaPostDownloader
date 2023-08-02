@@ -10,17 +10,7 @@ def download_instagram_reel(url):
     # Load the Instagram post
     try:
         
-        post = instaloader.Post.from_shortcode(loader.context, url.split("/")[-2])
-        '''
-
-        --login required to execxute this 
-        
-        likess = post.get_likes()
-        print(likess,type(likess))
-        for i in likess:
-            print(i)
-        '''
-        
+        post = instaloader.Post.from_shortcode(loader.context, url.split("/")[-2])      
         # print('post',post)
         # print('post',post.comments)
         # print('post',post.likes)
