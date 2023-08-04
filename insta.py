@@ -19,6 +19,7 @@ def download_instagram_reel(url):
         # print("Owner username:", post.owner_username)
         postdetails={"id":uniqueID,'caption':post.caption,"owner":post.owner_username,'url':post.url,'likes':post.likes,"comments":post.comments}
         loader.download_post(post, target=f"just{uniqueID}")
+        # loader.download_post(post, target=f"static\\insta\\")
         print("Instagram reel downloaded successfully.")
         return postdetails
     except Exception as e:
@@ -26,6 +27,6 @@ def download_instagram_reel(url):
 
 # Example usage
 
-# reel_url = "https://www.instagram.com/reels/CtSoNueAswy/"
-# download_instagram_reel(reel_url)
+reel_url = "https://www.instagram.com/reels/CtSoNueAswy/"
+download_instagram_reel(reel_url)
 

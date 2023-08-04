@@ -11,8 +11,6 @@ app = Flask(__name__)
 def home():
     if request.method == 'POST':
         
-        
-        # url = json.loads(request.data.decode('utf-8'))
         url=request.form.get('insta_url')
         
         details=download_instagram_reel(url)
@@ -21,7 +19,6 @@ def home():
         files = os.listdir(downloadedPath)
         # print(files)
         sources=[]
-
 
         for file in files:
             # if file.endswith('jpg') or file.endswith('mp4'):
@@ -33,13 +30,9 @@ def home():
         staticPath=os.listdir('static/insta')
         for i in staticPath:
             if(int(i[:4])==(details.get('id'))) and ( i.endswith('jpg') or i.endswith('mp4')):
-                sources.append(os.path.join('static','insta',i).replace('\\','/'))
-                
+                sources.append(os.path.join('static','insta',i).replace('\\','/'))       
                 
         print(sources)
-
-    
-
         #return jsonify({'a': 'static/2023-07-06_18-57-45_UTC.jpg'})
         return render_template('landing_page2.html',sources=sources,post_caption=details.get('caption'),post_owner=details.get('owner'),post_likes=details.get('likes'),post_comments=details.get('comments'),post_url=details.get('url'))
     else:

@@ -42,13 +42,15 @@
     
     .download-section {
       padding: 5%;
-      background: linear-gradient(to top left, #dde1f3, #073d87);
       background: linear-gradient(to top left, #ef7489, #4B0082);
+
       color: #fff;
       position: relative;
       width: 100%;
       min-height: 100vh;
       height: auto;
+      transition: all 0.5s ease; 
+
       
     }
     .btn
@@ -74,7 +76,7 @@
 <body>
   <nav data-aos="slide-right" data-aos-duration="1000" data-aos-delay="200" data-aos-offset="500" class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">
-      <a class="navbar-brand" href="#">Your Brand</a>
+      <a class="navbar-brand fw-bold"   href="#">Logic Vertix</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -112,13 +114,13 @@
 
            <ul class="nav justify-content-center mb-3 ">
             <li class="nav-item">
-              <a class="btn btn-sm border border-white text-dark bg-white fw-6  m-1 " >Instagram</a>
+              <a class="btn btn-sm border border-white text-white  fw-6  m-1 " value="Instagram" onclick="clickedButton(this)" >Instagram</a>
             </li>
             <li class="nav-item">
-              <a class="btn btn-sm border border-white text-white m-1">Facebook</a>
+              <a class="btn btn-sm border border-white text-white m-1" value="Facebook" onclick="clickedButton(this)">Facebook</a>
             </li>
             <li class="nav-item">
-              <a class="btn btn-sm border border-white text-white m-1 " >Youtube</a>
+              <a class="btn btn-sm border border-white text-white m-1 " value="Youtube" onclick="clickedButton(this)">Youtube</a>
             </li>
             
           </ul>
@@ -316,6 +318,33 @@
 
 
   </script>
+
+  <script>
+    function clickedButton(selectedService)
+    {
+      var choice=(selectedService.getAttribute('value'));
+      console.log(choice)
+      if (choice=='Instagram')
+      {
+        document.getElementsByClassName('download-section')[0].style.background="linear-gradient(to top left, #ef7489, #4B0082)";
+      }
+      if (choice=='Facebook')
+      {
+
+        
+        document.getElementsByClassName('download-section')[0].style.background="linear-gradient(to top left, #b8c2ec, #073d87)";
+        
+      }
+      
+      if (choice=='Youtube')
+      {
+        document.getElementsByClassName('download-section')[0].style.background="linear-gradient(to top left, #f37a81, #5b0e0e)";
+        
+      }
+    
+    }
+  </script>
+
 
 
 </body>
